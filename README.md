@@ -146,3 +146,22 @@ models used:
 # Conclusion
 ### The Anomaly detection methods were almost 100% accurate while the Supervised version is dealing with classes that look very similar to each other because of their features. The anomaly detection method is more useful on a IDS since the main goal is to identify the attack rather than classify it 
 More inforamtion about everything shown here is marked down in the .ipynb files 
+
+## Dataset & Citation
+
+This project uses the **IEC 60870-5-104 Intrusion Detection Dataset**, created by the ITHACA lab at the University of Western Macedonia (https://ithaca.ece.uowm.gr/).
+
+- Zenodo record: https://zenodo.org/records/7108614
+- DOI: [10.21227/fj7s-f281](https://doi.org/10.21227/fj7s-f281)
+- License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+Authors: P. Radoglou-Grammatikis, K. Rompolos, T. Lagkas, V. Argyriou, P. Sarigiannidis
+
+As requested by the dataset authors, please cite:
+
+> P. Radoglou-Grammatikis, K. Rompolos, P. Sarigiannidis, V. Argyriou, T. Lagkas, A. Sarigiannidis, S. Goudos and S. Wan, "Modeling, Detecting, and Mitigating Threats Against Industrial Healthcare Systems: A Combined Software Defined Networking and Reinforcement Learning Approach," *IEEE Transactions on Industrial Informatics*, vol. 18, no. 3, pp. 2041–2052, March 2022, doi: 10.1109/TII.2021.3093905.
+> https://ieeexplore.ieee.org/document/9470933
+
+The dataset was produced within the H2020 projects **ELECTRON** (grant agreement No 101021936) and **SDN-microSENSE** (No 833955).
+
+The IEC 60870-5-104 flow statistics used here come from the dataset's Custom IEC 60870-5-104 Python Parser (Scapy-based); the TCP/IP flow statistics come from CICFlowMeter.
