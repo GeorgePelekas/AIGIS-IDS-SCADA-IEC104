@@ -146,6 +146,5 @@ models used:
 # Conclusion
 ### The Anomaly detection methods were almost 100% accurate while the Supervised version is dealing with classes that look very similar to each other because of their features. The anomaly detection method is more useful on a IDS since the main goal is to identify the attack rather than classify it 
 More inforamtion about everything shown here is marked down in the .ipynb files 
-| **macro-F1 (4 classes)** | **0.31** | **0.35** | **+0.04** |
 
-There is only a gain on c_rd_na_1 and c_rd_na_1_DoS, which were the weakest of the 4 classes.
+There is only a gain on c_rd_na_1 
