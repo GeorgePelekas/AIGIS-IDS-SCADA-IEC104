@@ -30,7 +30,7 @@ The classes of the dataset are:
 | `c_se_na_1_DoS` | Set-point Command (DoS) |
 | `m_sp_na_1_DoS` | Single-point Information (DoS) |
 
-To understand why the supervised tree-based models plateau, their performance was analysed and visualized with SHAP, ROC-AUC, PR-AUC, calibration curves and UMAP. Finally, a two-stage classifier was added, with a model specifically trained on the classes that did worse (c_rd_na_1, c_rd_na_1_DoS, c_rp_na_1, c_rp_na_1_DoS) so that it specializes in predicting only them.
+To understand why the supervised tree-based models plateau, their performance was analysed and visualized with Confusion Matrices, SHAP, ROC-AUC, PR-AUC, calibration curves and UMAP. Finally, a two-stage classifier was added, with a model specifically trained on the classes that did worse (c_rd_na_1, c_rd_na_1_DoS, c_rp_na_1, c_rp_na_1_DoS) so that it specializes in predicting only them.
 
 To achieve this, the 4 worst-performing classes were merged into one `c_rd_rp_family` label, numbered as class `3`, for the first stage, the second-stage model was then trained on a train/test set containing only those 4 classes.
 
