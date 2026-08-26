@@ -156,7 +156,7 @@ ROC-AUC is **1.0000** for all three models. The models differ only in how many n
 | **macro avg** | **1.00** | **0.96** | **0.98** | **2028** |
 | **weighted avg** | **0.99** | **0.99** | **0.99** | **2028** |
 
-All three models detect every attack in the test set. Isolation Forest produces the fewest false alarms and is also the simplest and fastest of the three, so it was selected for the first stage of the cascade.
+All three models detect every attack in the test set. Isolation Forest produces the fewest false alarms and is also the simplest and fastest of the three, so it was selected for the first stage of the cascade on the `AIGIS.ipynb` file.
 
 ---
 
