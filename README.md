@@ -47,9 +47,18 @@ The classes of the dataset are:
 | `c_se_na_1_DoS` | Set-point Command (DoS) |
 | `m_sp_na_1_DoS` | Single-point Information (DoS) |
 
-To understand why the supervised tree-based models plateau, their performance was analysed and visualized with Confusion Matrices, SHAP, ROC-AUC, PR-AUC, calibration curves and UMAP. Finally, a two-stage classifier was added, with a model specifically trained on the classes that did worse (c_sc_na_1,c_sc_na_1_DoS,c_se_na_1,c_se_na_1_DoS) so that it specializes in predicting only them.
+To understand why the supervised tree-based models plateau, their
+performance was analysed and visualized with confusion matrices, SHAP,
+ROC-AUC, PR-AUC, calibration curves and UMAP.
 
-To achieve this, the 4 worst-performing classes were merged into one `c_sc_and_c_se` label, numbered as class `7`, for the first stage, the second-stage model was then trained on a train/test set containing only those 4 classes.
+The final architecture is a three-stage cascade. The first stage is an
+anomaly detector that separates normal network flows from anything that
+deviates from them. The second stage is a 9-class classifier, in which
+the four worst-performing classes (`c_sc_na_1`, `c_sc_na_1_DoS`,
+`c_se_na_1`, `c_se_na_1_DoS`) are merged into a single `c_sc_and_c_se`
+label. Flows routed to that label are then passed to a third-stage model
+trained only on those four classes, so that it specializes in telling
+them apart.
 
 Models used:
 
