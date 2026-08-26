@@ -8,7 +8,23 @@ The project showcases 2 jupyter notebook files.
 The **AIGIS.ipynb** file cointaining sections from Anomaly detectors, multilabel classifiers and data visualization.
 The **AIGIS_UNSUPERVISED.ipynb** containing only the anomaly detection part and the search of the models hyperparameters.
 
+
 ---
+# Requirments
+-numpy
+-pandas
+-matplotlib
+-seaborn
+-scikit-learn
+-xgboost
+-lightgbm
+-catboost
+- shap
+- umap-learn
+- torch
+- joblib
+- scipy
+
 
 # Supervised Learning Version
 
