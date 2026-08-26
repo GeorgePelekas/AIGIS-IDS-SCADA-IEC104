@@ -103,7 +103,33 @@ GridSearchCV and RFECV were used to find the best hyperparameters of the models 
 | **Weighted avg** | **0.83** | **0.87** | **+0.04** |
 
 
+A diagram of how it works:
 
+                 IEC-104 Flow
+                      |
+                      v
+             +------------------+
+             |   Stage 1        |
+             | Isolation Forest  |
+             +------------------+
+                /            \
+           Normal           Attack
+                              |
+                              v
+                   +------------------+
+                   |    Stage 2       |
+                   | Random Forest    |
+                   |    9 classes     |
+                   +------------------+
+                              |
+                    c_sc_and_c_se
+                              |
+                              v
+                   +------------------+
+                   |    Stage 3       |
+                   |    CatBoost      |
+                   |    4 classes     |
+                   +------------------+
 
 # Anomaly Detection Version
 
