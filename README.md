@@ -105,7 +105,7 @@ GridSearchCV and RFECV were used to find the best hyperparameters of the models 
 
 A diagram of how it works:
 
-                 IEC-104 Flow
+                     Data
                       |
                       v
              +------------------+
