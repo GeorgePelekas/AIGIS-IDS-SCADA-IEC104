@@ -54,7 +54,7 @@ ROC-AUC, PR-AUC, calibration curves and UMAP.
 The final architecture is a three-stage cascade. The first stage is an
 anomaly detector that separates normal network flows from anything that
 deviates from them. The second stage is a 9-class classifier, in which
-the four worst-performing classes (`c_sc_na_1`, `c_sc_na_1_DoS`,
+the four most-confused classes (`c_sc_na_1`, `c_sc_na_1_DoS`,
 `c_se_na_1`, `c_se_na_1_DoS`) are merged into a single `c_sc_and_c_se`
 label. Flows routed to that label are then passed to a third-stage model
 trained only on those four classes, so that it specializes in telling
