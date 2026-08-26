@@ -10,21 +10,23 @@ The **AIGIS_UNSUPERVISED.ipynb** containing only the anomaly detection part and 
 
 
 ---
-# Requirments
--numpy
--pandas
--matplotlib
--seaborn
--scikit-learn
--xgboost
--lightgbm
--catboost
-- shap
-- umap-learn
-- torch
-- joblib
-- scipy
 
+# Requirments
+## Setup
+
+Requires Python 3.14.
+
+```bash
+pip install -r requirements.txt
+```
+
+The dataset is not included in the repository. Download the balanced
+CSV files from the [Zenodo record](https://zenodo.org/records/7108614)
+and place `iec104_custom_script_train_final.csv` and
+`iec104_custom_script_test_final.csv` in the project root.
+
+Main dependencies: scikit-learn, XGBoost, LightGBM, CatBoost, SHAP,
+umap-learn, PyTorch.
 
 # Supervised Learning Version
 
