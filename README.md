@@ -90,7 +90,22 @@ GridSearchCV and RFECV were used to find the best hyperparameters of the models 
 | **macro avg** | **0.84** | **0.84** | **0.83** | **2028** |
 | **weighted avg** | **0.84** | **0.84** | **0.83** | **2028** |
 
-### Random Forest + CatBoost Hybrid
+### 3-stage Cascade (Isolation Forest → Random Forest → CatBoost)
+
+**Stage 1 — Isolation Forest** (refitted on all 400 NORMAL training flows):
+
+| class | precision | recall | f1-score | support |
+|---|---:|---:|---:|---:|
+| Attack | 1.00 | 1.00 | 1.00 | 1859 |
+| Normal | 1.00 | 0.99 | 0.99 | 169 |
+| **accuracy** | | | **1.00** | **2028** |
+| **macro avg** | 1.00 | 0.99 | 1.00 | 2028 |
+| **weighted avg** | 1.00 | 1.00 | 1.00 | 2028 |
+
+Every attack flow is routed onward; two of the 169 normal flows are
+misrouted. No attack is labelled NORMAL at this stage.
+
+**End-to-end, all 12 classes:**
 
 | class | precision | recall | f1-score | support |
 |---|---:|---:|---:|---:|
