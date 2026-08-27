@@ -127,7 +127,7 @@ misrouted. No attack is labelled NORMAL at this stage.
 
 ### Comparison
 
-| class | Random Forest FLAT | Random Forest + CatBoost hybrid | difference f1 |
+| class | Random Forest FLAT | 3 stage Cascade | difference f1 |
 |---|---|---|---|
 | NORMAL | 1.00 | 1.00 | +0.00 |
 | c_ci_na_1 | 1.00 | 1.00 | +0.00 |
