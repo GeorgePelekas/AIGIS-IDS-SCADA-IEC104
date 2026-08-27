@@ -218,6 +218,11 @@ run — the One-Class SVM fits 170× faster and the autoencoder predicts
 9× faster — but at this data scale the costs are negligible.
 the false alarm rate matters more.
 
+The model deployed in the cascade is refitted on all 400 NORMAL training
+flows once the hyperparameters are fixed, which brings the false alarms
+on the test set down from 3 to 2 (Normal recall 0.99 instead of 0.98).
+The figures in the table above are those of the tuning fit (320 flows).
+
 ---
 
 ## Dataset & Citation
