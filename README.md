@@ -170,46 +170,53 @@ models used:
 ### Results of the Anomaly Detection Version
 
 
-All three models were fit on the same 320 NORMAL training flows.  
+All three models were fit on the same 320 NORMAL training flows.
+Hyperparameters were selected on a held-out validation set; the test
+set was used once. All timings are CPU timings (Ryzen 7 9800X3D),
+averaged over 5 runs.
 
-Hyperparameters were selected on a held-out validation set; the test set was used once.
-
-| Model | ROC-AUC | Detection rate | False alarms | False alarm rate | Parameters |
-|---|---:|---:|---:|---:|---|
-| **Isolation Forest** | **1.0000** | **1.00** | **3 / 169** | **0.02** | contamination 0.033, n_estimators 100 |
-| One-Class SVM | **1.0000** | **1.00** | 5 / 169 | 0.03 | nu 0.01, gamma 0.001 |
-| Autoencoder | **1.0000** | **1.00** | 13 / 169 | 0.08 | 1000 epochs, 95th-percentile threshold |
-
-ROC-AUC is **1.0000** for all three models. The models differ only in how many normal flows they incorrectly flag as attacks.
+| Model | ROC-AUC | Detection rate | False alarms | False alarm rate | Fit | Predict | Parameters |
+|---|---|---|---|---|---|---|---|
+| **Isolation Forest** | 1.0000 | 1.00 | **3 / 169** | **0.02** | 54.1 ms | 6.16 ms | contamination 0.033, n_estimators 100 |
+| One-Class SVM | 1.0000 | 1.00 | 5 / 169 | 0.03 | **0.32 ms** | 1.57 ms | nu 0.01, gamma 0.001 |
+| Autoencoder | 1.0000 | 1.00 | 13 / 169 | 0.08 | 730 ms | **0.68 ms** | 1000 epochs, 95th-percentile threshold |
 
 ### Isolation Forest
 
 | class | precision | recall | f1 | support |
-|---|---:|---:|---:|---:|
+|---|---|---|---|---|
 | Attack | 1.00 | 1.00 | 1.00 | 1859 |
 | Normal | 1.00 | 0.98 | 0.99 | 169 |
-| **macro avg** | **1.00** | **0.99** | **1.00** | **2028** |
-| **weighted avg** | **1.00** | **1.00** | **1.00** | **2028** |
+| **macro avg** | 1.00 | 0.99 | 1.00 | 2028 |
+| **weighted avg** | 1.00 | 1.00 | 1.00 | 2028 |
 
 ### One-Class SVM
 
 | class | precision | recall | f1 | support |
-|---|---:|---:|---:|---:|
+|---|---|---|---|---|
 | Attack | 1.00 | 1.00 | 1.00 | 1859 |
 | Normal | 1.00 | 0.97 | 0.98 | 169 |
-| **macro avg** | **1.00** | **0.99** | **0.99** | **2028** |
-| **weighted avg** | **1.00** | **1.00** | **1.00** | **2028** |
+| **macro avg** | 1.00 | 0.99 | 0.99 | 2028 |
+| **weighted avg** | 1.00 | 1.00 | 1.00 | 2028 |
 
 ### Autoencoder
 
 | class | precision | recall | f1 | support |
-|---|---:|---:|---:|---:|
+|---|---|---|---|---|
 | Attack | 0.99 | 1.00 | 1.00 | 1859 |
 | Normal | 1.00 | 0.92 | 0.96 | 169 |
-| **macro avg** | **1.00** | **0.96** | **0.98** | **2028** |
-| **weighted avg** | **0.99** | **0.99** | **0.99** | **2028** |
+| **macro avg** | 1.00 | 0.96 | 0.98 | 2028 |
+| **weighted avg** | 0.99 | 0.99 | 0.99 | 2028 |
 
-All three models detect every attack in the test set. Isolation Forest produces the fewest false alarms and is also the simplest and fastest of the three, so it was selected for the first stage of the cascade on the `AIGIS.ipynb` file.
+
+ROC-AUC is 1.0000 for all three models. The models differ only in how many normal flows they wrongly flag as attacks.
+
+All three detect every attack in the test set. The Isolation Forest
+produces the fewest false alarms and needs no feature scaling, so it was
+selected for the first stage of the cascade. It is not the cheapest to
+run — the One-Class SVM fits 170× faster and the autoencoder predicts
+9× faster — but at this data scale the costs are negligible.
+the false alarm rate matters more.
 
 ---
 
