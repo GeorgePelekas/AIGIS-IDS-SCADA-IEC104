@@ -156,11 +156,11 @@ A diagram of how it works:
              +------------------+
                 /            \
            Normal           Attack
-                              |
-                              v
-                   +------------------+
-                   |    Stage 2       |
-                   | Random Forest    |
+             |                 |
+             |                 v
+             |     +------------------+
+             |     |    Stage 2       |
+             | ->  | Random Forest    |
                    |    9 classes     |
                    +------------------+
                               |
